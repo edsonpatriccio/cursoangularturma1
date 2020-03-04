@@ -1,14 +1,56 @@
-<p>layout works!</p>
-
 <app-cabecalho></app-cabecalho>
 
 <app-menu></app-menu>
 
-
+<!--
 <p>{{titulo}}</p>
+-->
 
 <h3 [textContent]="titulo"></h3>
 
-<button (click)="ola()" >Ola</button>
 
-<input type="text" [(ngModel)]="texto"/>
+<label>Codigo:</label>
+<input type="text" [(ngModel)]="pessoa.codigo"/>
+
+<br />
+
+<label>Nome:</label>
+<input type="text" [(ngModel)]="pessoa.nome"/>
+
+<br />
+
+<label>Telefone:</label>
+<input type="text" [(ngModel)]="pessoa.telefone"/>
+
+<br />
+
+<label>Data de Nascimento:</label>
+<input type="text" [(ngModel)]="pessoa.dataNascimento"/>
+
+<br />
+
+<label>Endereço:</label>
+<input type="text" [(ngModel)]="pessoa.endereco"/>
+
+<br />
+
+<label>Bairro:</label>
+<input type="text" [(ngModel)]="pessoa.bairro"/>
+
+<br />
+
+<label>Cidade:</label>
+<input type="text" [(ngModel)]="pessoa.cidade"/>
+
+<br />
+
+<label>Estado:</label>
+<input type="text" [(ngModel)]="pessoa.estado"/>
+
+<br />
+
+<button *ngIf="mostrar" (click)="imprimir()" >imprimir</button>
+
+<br />
+
+<button (click)="invertermostrar()" >invertermostrar</button>
