@@ -1,0 +1,64 @@
+<app-layout>
+
+    <div>
+        <h3 [textContent]="titulo"></h3>
+    
+    
+        <label>Codigo:</label>
+        <input type="text" [(ngModel)]="pessoa.codigo"/>
+    
+        <br />
+    
+        <label>Nome:</label>
+        <input type="text" [(ngModel)]="pessoa.nome"/>
+    
+        <br />
+    
+        <label>Telefone:</label>
+        <input type="text" [(ngModel)]="pessoa.telefone"/>
+    
+        <br />
+    
+        <label>Data de Nascimento:</label>
+        <input type="date" [(ngModel)]="pessoa.dataNascimento"/>
+    
+        <br />
+    
+        <label>Endereço:</label>
+        <input type="text" [(ngModel)]="pessoa.endereco"/>
+    
+        <br />
+    
+        <label>Bairro:</label>
+        <input type="text" [(ngModel)]="pessoa.bairro"/>
+    
+        <br />
+    
+        <label>Cidade:</label>
+    
+        <select [(ngModel)]="pessoa.cidade" >
+            <option *ngFor="let cidade of listaMunicipios" 
+            [ngValue]="cidade">{{cidade.nome}}</option>
+        </select>
+    
+        <br />
+    
+        <label>Estado:</label>
+        <select [(ngModel)]="pessoa.estado" (ngModelChange)="carregarCidade()">
+            <option *ngFor="let estado of listaEstados" 
+            [ngValue]="estado">{{estado}}</option>
+        </select>
+    
+        <br />
+    
+        <label>Ativo:</label>
+        <input type="radio" [(ngModel)]="pessoa.ativo" [value]="true"/>Sim
+        <input type="radio" [(ngModel)]="pessoa.ativo"[value]="false" />Não
+    
+        <br />
+    
+        <button (click)="incluir()" >incluir</button>
+
+    </div>
+
+</app-layout>

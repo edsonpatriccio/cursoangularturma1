@@ -1,0 +1,32 @@
+<app-layout>
+
+    <br />    
+    <table border="1">
+        <tr>
+            <th>Codigo</th>
+            <th>Nome</th>
+            <th>Estado</th>
+            <th>Cidade</th>
+            <th>Data Nascimento</th>
+            <th>Ativo</th>
+            <th>Remover</th>
+        </tr>
+        <tr *ngFor="let pessoa of listaPessoas">
+            <td>{{pessoa.codigo}}</td>
+            <td>{{pessoa.nome}}</td>
+            <td>{{pessoa.cidade.nome}}</td>
+            <td>{{pessoa.estado}}</td> 
+
+            <td>{{pessoa.dataNascimento | date:'dd/MM/yyyy'}}</td> 
+
+            <td *ngIf="pessoa.ativo">Sim</td>
+            <td *ngIf="!pessoa.ativo">Não</td>
+            <td style="cursor: pointer;"><a (click)="remover(pessoa)">X</a></td>
+        </tr>
+    </table>    
+
+
+
+</app-layout>
+
+<app-pessoa-manter></app-pessoa-manter>

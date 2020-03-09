@@ -7,6 +7,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { MenuComponent } from './menu/menu.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
+import { PessoaManterComponent } from './pessoa/pessoa-manter/pessoa-manter.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PessoaComponent } from './pessoa/pessoa.component';
     LayoutComponent,
     CabecalhoComponent,
     MenuComponent,
-    PessoaComponent
+    PessoaComponent,
+    PessoaManterComponent
   ],
   imports: [
     BrowserModule,
