@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Pessoa } from '../pessoa';
+
 
 @Component({
   selector: 'app-pessoa-manter',
@@ -10,7 +11,12 @@ export class PessoaManterComponent implements OnInit {
 
   titulo: string = 'Incluir Pessoa';
 
-  pessoa: Pessoa = new Pessoa();
+  @Output('pessoaEnviar') pessoaEmitir: EventEmitter<Pessoa> = new EventEmitter();
+  @Output('pessoaEnviarAlterar') pessoaEmitirAlterar: EventEmitter<Pessoa> = new EventEmitter();
+  @Input()pessoa: Pessoa = new Pessoa();
+
+  @Input()operacao: string = 'pesquisar';
+  @Output()operacaoChange: EventEmitter<string> = new EventEmitter();
 
   listaEstados: string[] = ["AC", "PE", "PA","PB"];
   listaMunicipios: any[] = [];
@@ -21,8 +27,23 @@ export class PessoaManterComponent implements OnInit {
   }
 
   incluir(){
-    //this.listaPessoas.push(this.pessoa);
+    
+    this.pessoaEmitir.emit(this.pessoa);
     this.pessoa = new Pessoa();
+    this.operacao = 'pesquisar';
+    this.operacaoChange.emit(this.operacao);
+  }
+
+  alterar(){
+    this.pessoaEmitirAlterar.emit(this.pessoa);
+    this.pessoa = new Pessoa();
+    this.operacao = 'pesquisar';
+    this.operacaoChange.emit(this.operacao);
+  }
+
+  voltar(){
+    this.operacao = 'pesquisar';
+    this.operacaoChange.emit(this.operacao);
   }
 
   carregarCidade(){    

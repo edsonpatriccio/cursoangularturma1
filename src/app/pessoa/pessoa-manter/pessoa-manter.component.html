@@ -57,7 +57,11 @@
     
         <br />
     
-        <button (click)="incluir()" >incluir</button>
+        <button *ngIf="operacao=='incluir'" (click)="incluir()" >incluir</button>
+
+        <button *ngIf="operacao=='alterar'" (click)="alterar()" >alterar</button>
+
+        <button (click)="voltar()" >voltar</button>
 
     </div>
 

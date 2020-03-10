@@ -14,6 +14,8 @@ export class PessoaComponent implements OnInit {
 
   mostrar: boolean = false;
 
+
+  operacao: string = 'pesquisar';
   
 
   listaPessoas: Pessoa[] = [
@@ -79,6 +81,22 @@ export class PessoaComponent implements OnInit {
     this.listaPessoas = this.listaPessoas.filter(
       obj => obj !== pessoa);
     
+  }
+
+  adicionarPessoa(pessoa){
+
+    this.listaPessoas.push(pessoa);
+
+  }
+
+  incluir(){
+    this.pessoa = new Pessoa(); 
+    this.operacao = 'incluir';
+  }
+
+  alterar(pessoa){
+    this.pessoa = pessoa;  
+    this.operacao = 'alterar';
   }
 
 }

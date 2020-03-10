@@ -9,7 +9,7 @@ export class Pessoa {
     dataNascimento: Date;
     endereco: string;
     bairro: string;
-    cidade: Cidade;
+    cidade: Cidade = new Cidade();
     estado: string;
 
     ativo:boolean;

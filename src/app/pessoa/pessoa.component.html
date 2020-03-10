@@ -1,4 +1,4 @@
-<app-layout>
+<app-layout *ngIf="operacao =='pesquisar'">
 
     <br />    
     <table border="1">
@@ -10,6 +10,7 @@
             <th>Data Nascimento</th>
             <th>Ativo</th>
             <th>Remover</th>
+            <th>Editar</th>
         </tr>
         <tr *ngFor="let pessoa of listaPessoas">
             <td>{{pessoa.codigo}}</td>
@@ -21,12 +22,16 @@
 
             <td *ngIf="pessoa.ativo">Sim</td>
             <td *ngIf="!pessoa.ativo">Não</td>
+            
             <td style="cursor: pointer;"><a (click)="remover(pessoa)">X</a></td>
+            <td style="cursor: pointer;"><a (click)="alterar(pessoa)">Editar</a></td>
         </tr>
     </table>    
+
+    <button (click)="incluir()" >incluir</button>    
 
 
 
 </app-layout>
 
-<app-pessoa-manter></app-pessoa-manter>
+<app-pessoa-manter *ngIf="operacao =='incluir' || operacao =='alterar'" [operacao]="operacao" (operacaoChange)="operacao=$event" [pessoa]="pessoa" (pessoaEnviar)="adicionarPessoa($event)"></app-pessoa-manter>
